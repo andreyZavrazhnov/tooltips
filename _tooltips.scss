@@ -1,0 +1,60 @@
+.module-tooltip {
+    @include inline-block;
+    margin-bottom: 0;
+
+    .icon-bubble-info {
+        @include inline-block;
+        position: relative;
+    }
+
+    %tooltip {
+        display: none;
+        position: absolute;
+        z-index: $zindex-tooltip;
+    }
+
+    .arrow-tooltip {
+        @extend %tooltip;
+        bottom: 2.7rem;
+    }
+
+    .arrow-tooltip:after,
+    .arrow-tooltip:before {
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: '';
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+
+    .arrow-tooltip:after {
+        @include arrow-tooltip(.6rem, $tui-white)
+    }
+
+    .arrow-tooltip:before {
+        @include arrow-tooltip(.7rem, $color-gray);
+    }
+
+    .tooltip {
+        @extend %tooltip;
+        @include border-radius(.3rem);
+        border: $color-gray solid .1rem;
+        bottom: 2.6rem;
+        left: 0;
+        padding: 0.5rem 1rem;
+        background: $tui-white;
+        text-align: left;
+        line-height: 1.1em;
+        font-size: 1.4rem;
+    }
+
+    &.active {
+        .tooltip,
+        .arrow-tooltip {
+            display: block;
+        }
+    }
+}
