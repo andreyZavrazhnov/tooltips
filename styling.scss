@@ -10,7 +10,7 @@
     %tooltip {
         display: none;
         position: absolute;
-        z-index: $zindex-tooltip;
+        z-index: 10;
     }
 
     .arrow-tooltip {
@@ -31,21 +31,21 @@
     }
 
     .arrow-tooltip:after {
-        @include arrow-tooltip(.6rem, $tui-white)
+        @include arrow-tooltip(.6rem, white)
     }
 
     .arrow-tooltip:before {
-        @include arrow-tooltip(.7rem, $color-gray);
+        @include arrow-tooltip(.7rem, gray);
     }
 
     .tooltip {
         @extend %tooltip;
         @include border-radius(.3rem);
-        border: $color-gray solid .1rem;
+        border: gray solid .1rem;
         bottom: 2.6rem;
         left: 0;
         padding: 0.5rem 1rem;
-        background: $tui-white;
+        background: white;
         text-align: left;
         line-height: 1.1em;
         font-size: 1.4rem;
